@@ -1,0 +1,13 @@
+.navbar-brand {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff !important;
+  }
+  
+  .nav-link {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: #ffffff !important;
+  }
+  

@@ -1,9 +1,13 @@
-
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Container } from 'react-bootstrap';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import ProductScreen from './pages/ProductScreen';
 import RequiredAuth from "./util/authRoutes";
 
-import HomePage from "./pages/HomePage";
 import AddProductPage from "./pages/AddProductPage";
 import UpdateProductPage from "./pages/UpdateProductPage";
 import AuthPage from "./pages/AuthPage";
@@ -32,7 +36,6 @@ function App() {
   });
 
   const login = (token, userId, isAdmin) => {
-    //console.log("app token", token);
     localStorage.setItem("token", token);
     localStorage.setItem("userId", userId);
     setUserLoggedData({ token: token, userId: userId, isAdmin: isAdmin });
@@ -55,44 +58,53 @@ function App() {
           logout: logout,
         }}
       >
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<AuthPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          {/* protected views*/}
-          <Route
-            path="/addProduct"
-            element={
-              <RequiredAuth>
-                <AddProductPage />
-              </RequiredAuth>
-            }
-          />
-          <Route
-            path="/update/:id"
-            element={
-              <RequiredAuth>
-                <UpdateProductPage />
-              </RequiredAuth>
-            }
-          />
-          <Route
-            path="/admin"
-            element={
-              <RequiredAuth>
-                <AdminPage />
-              </RequiredAuth>
-            }
-          />
-          <Route
-            path="/orders"
-            element={
-              <RequiredAuth>
-                <OrdersPage />
-              </RequiredAuth>
-            }
-          />
-        </Routes>
+        <Router>
+          <Header />
+          <main className="py-3">
+            <Container>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/login" element={<AuthPage />} />
+                <Route path="/cart" element={<CartPage />} />
+                <Route path="/product/:id" element={<ProductScreen />} />
+                {/* protected views*/}
+                <Route
+                  path="/addProduct"
+                  element={
+                    <RequiredAuth>
+                      <AddProductPage />
+                    </RequiredAuth>
+                  }
+                />
+                <Route
+                  path="/update/:id"
+                  element={
+                    <RequiredAuth>
+                      <UpdateProductPage />
+                    </RequiredAuth>
+                  }
+                />
+                <Route
+                  path="/admin"
+                  element={
+                    <RequiredAuth>
+                      <AdminPage />
+                    </RequiredAuth>
+                  }
+                />
+                <Route
+                  path="/orders"
+                  element={
+                    <RequiredAuth>
+                      <OrdersPage />
+                    </RequiredAuth>
+                  }
+                />
+              </Routes>
+            </Container>
+          </main>
+          <Footer />
+        </Router>
       </AuthContext.Provider>
     </Provider>
   );

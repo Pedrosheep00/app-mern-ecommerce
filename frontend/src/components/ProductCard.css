@@ -1,0 +1,30 @@
+.product-card {
+    width: 345px;
+    height: 550px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .product-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .product-card-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .product-card img {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .product-card .card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
