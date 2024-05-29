@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Grid, Button } from "@mui/material";
-import NavBar from "../components/NavBar.jsx";
+import Header from "../components/Header.jsx";
 import AddProduct from "../components/AddProduct.jsx";
 import UpdateProduct from "../components/UpdateProduct.jsx";
 
@@ -20,7 +20,7 @@ const AdminPage = () => {
 
   return (
     <>
-      <NavBar />
+      <Header />
       <Grid container direction="row" style={{ padding: "20px" }}>
         <Grid item xs={2}>
           <Button 

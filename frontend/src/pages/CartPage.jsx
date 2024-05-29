@@ -22,7 +22,6 @@ import {
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import Avatar from "@mui/material/Avatar";
-import NavBar from "../components/NavBar";
 import InputAdornment from "@mui/material/InputAdornment";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import HomeIcon from "@mui/icons-material/Home";
@@ -151,7 +150,6 @@ const CartPage = () => {
   };
   return (
     <>
-      <NavBar />
       {addedItems.length !== 0 ? (
         <>
           <Grid

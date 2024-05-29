@@ -3,7 +3,6 @@ import { Grid } from "@mui/material";
 import React, { useState } from "react";
 import LoginForm from "../components/LoginForm.jsx";
 import RegisterForm from "../components/RegisterForm.jsx";
-import NavBar from "../components/NavBar.jsx";
 
 const AuthPage = () => {
   const [loginShow, setLoginShow] = useState(true);
@@ -14,7 +13,6 @@ const AuthPage = () => {
 
   return (
     <>
-      <NavBar />
 
       <Grid
         container

@@ -1,13 +1,28 @@
-.navbar-brand {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #ffffff !important;
-  }
-  
-  .nav-link {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    color: #ffffff !important;
-  }
-  
+.custom-header {
+  background-color: #f8f8f8; /* Light grey background */
+  border-bottom: 1px solid #e0e0e0; /* Light grey border */
+  top: 0;
+  z-index: 1000; /* Ensure it stays on top of other content */
+  position: fixed;
+  width: 100%; /* Full width */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+.navbar-logo {
+  width: 50px; /* Adjust size as needed */
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav .nav-link {
+  color: #000; /* Black color for icons */
+  margin-left: 15px;
+  font-size: 1.5rem; /* Increase icon size */
+}

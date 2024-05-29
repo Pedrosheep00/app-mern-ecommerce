@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import NavBar from "../components/NavBar";
 import axios from "axios";
 import {
   Typography,
@@ -69,7 +68,6 @@ const OrdersPage = () => {
 
   return (
     <React.Fragment>
-      <NavBar />
       <Grid
         container
         alignContent="center"

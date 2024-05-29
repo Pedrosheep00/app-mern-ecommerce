@@ -11,16 +11,16 @@ import RequiredAuth from "./util/authRoutes";
 import AddProductPage from "./pages/AddProductPage";
 import UpdateProductPage from "./pages/UpdateProductPage";
 import AuthPage from "./pages/AuthPage";
-
 import CartPage from "./pages/CartPage";
+import OrdersPage from "./pages/OrdersPage";
+import AdminPage from "./pages/AdminPage";
+
 import cartReducer from "./store/cart/cartReducer";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 
 import { AuthContext } from "./context/authContext";
 import { useState } from "react";
-import AdminPage from "./pages/AdminPage";
-import OrdersPage from "./pages/OrdersPage";
 
 const store = configureStore({
   reducer: {
@@ -60,14 +60,14 @@ function App() {
       >
         <Router>
           <Header />
-          <main className="py-3">
+          <main className="py-3 main-content">
             <Container>
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/login" element={<AuthPage />} />
                 <Route path="/cart" element={<CartPage />} />
                 <Route path="/product/:id" element={<ProductScreen />} />
-                {/* protected views*/}
+                {/* protected views */}
                 <Route
                   path="/addProduct"
                   element={
