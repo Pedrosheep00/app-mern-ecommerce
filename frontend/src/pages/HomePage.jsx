@@ -34,16 +34,16 @@ const HomePage = () => {
           <Carousel>
             {carouselItems.map((item) => (
               <Box key={item._id} className="carousel-item">
-                <img src={item.imageUrl} alt={item.name} className="carousel-image" />
-                <Typography variant="h5" className="carousel-caption">
+                <img src={item.imageUrl} alt={item.name} className="carousel-image"  />
+                <Typography variant="h5" className="carousel-caption" >
                   {item.name}
                 </Typography>
               </Box>
             ))}
           </Carousel>
         </Box>
-        <Typography variant="h3" className="section-title">
-          The latest. Take a look at what's new right now.
+        <Typography variant="h3" className="section-title" color={"#19527C"}>
+          The latest. Take a look at what is new right now.
         </Typography>
         <Grid container gap={3} sx={{ paddingTop: 2, paddingLeft: 3 }}>
           {productList.length !== 0 &&

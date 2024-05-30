@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
@@ -8,9 +7,7 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
-import { Button } from "@mui/material";
 import { useNavigate } from "react-router";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import './ProductCard.css'; // Link the CSS file
@@ -59,37 +56,35 @@ const ProductCard = (props) => {
       <CardHeader title={product.title} className="product-card-header" />
       <CardMedia
         component="img"
-        height="194"
         image={product.images}
         alt="Product image"
       />
-      <CardContent>
+      <CardContent className="card-content">
         <Stack direction="column" spacing={1}>
           <Typography variant="body2" color="text.secondary">
             {product.description}
           </Typography>
-          <Stack direction="row" spacing={1}>
+          <Stack direction="row" spacing={1} alignItems="center">
             <Rating
               name="half-rating-read"
               defaultValue={product.rating}
               precision={0.5}
               readOnly
+              className="rating-stars"
             />
             <Typography variant="body1" color="text.primary">
               {product.rating}
             </Typography>
           </Stack>
-          <Stack direction="column">
-            <Typography variant="body1" color="text.primary">
-              {product.price} $
-            </Typography>
-            <Typography variant="body1" color="text.primary">
-              Price discount: {product.discountPercentage}%
-            </Typography>
-          </Stack>
+          <Typography variant="body1" color="text.primary" className="price">
+            {product.price} $
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Price discount: {product.discountPercentage}%
+          </Typography>
         </Stack>
       </CardContent>
-      <CardActions>
+      <CardActions className="card-actions">
         {token && isAdmin ? (
           <Stack direction="row" gap={2}>
             <Button
@@ -108,20 +103,16 @@ const ProductCard = (props) => {
             </Button>
           </Stack>
         ) : (
-          <Stack direction="row" spacing={2}>
-            <Button
-              variant="contained"
-              color="primary"
-              endIcon={<AddShoppingCartIcon />}
+          <Stack direction="row" spacing={2} alignItems="center">
+            <button
+              className="add-button"
               onClick={() => handleAddToCart(product)}
             >
               + Add
-            </Button>
-            <TextField
-              inputRef={amountInputRef}
-              sx={{ width: 70 }}
-              label="Amount"
-              id={"amount_" + props.id}
+            </button>
+            <input
+              ref={amountInputRef}
+              className="amount-input"
               type="number"
               min={1}
               max={5}
